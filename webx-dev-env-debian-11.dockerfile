@@ -1,10 +1,10 @@
 FROM debian:11-slim
 
 RUN apt update
-RUN apt DEBIAN_FRONTEND=noninteractive install -y file cmake dpkg-dev pkg-config build-essential libzmq3-dev libpng-dev libwebp-dev libjpeg-dev libxdamage-dev libxrender-dev libxext-dev libxfixes-dev libxcomposite-dev libxkbfile-dev libxtst-dev
+RUN DEBIAN_FRONTEND=noninteractive apt install -y file cmake dpkg-dev pkg-config build-essential libzmq3-dev libpng-dev libwebp-dev libjpeg-dev libxdamage-dev libxrender-dev libxext-dev libxfixes-dev libxcomposite-dev libxkbfile-dev libxtst-dev
 
-RUN apt DEBIAN_FRONTEND=noninteractive install -y xfce4 xrdp dbus dbus-x11
-RUN apt DEBIAN_FRONTEND=noninteractive install -y xterm terminator nano less
+RUN DEBIAN_FRONTEND=noninteractive apt install -y xfce4 xrdp dbus dbus-x11
+RUN DEBIAN_FRONTEND=noninteractive apt install -y xterm terminator nano less
 
 # Ensure webx-engine is mounted to /app
 
