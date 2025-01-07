@@ -27,7 +27,7 @@ jobs:
           for file in *.dockerfile; do
             if [ -f "$file" ]; then
               # Extract image name and tag
-              image_name=$(basename "$file" | sed -E 's/\.dockerfile//; s/-([^-.]+)$/:\1/')
+              image_name=$(basename "$file" | sed -E 's/\.dockerfile//; s/-([^-]+)$/:\1/')
               # Build and push the image
               docker build -t ghcr.io/$repo_owner/$image_name -f "$file" .
               docker push ghcr.io/$repo_owner/$image_name
