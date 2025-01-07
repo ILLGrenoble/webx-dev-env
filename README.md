@@ -26,8 +26,6 @@ The simplest way to do this is to navigate in a terminal to your WebX Engine pro
 docker run --rm -v `pwd`:/app -p 5555-5558:5555-5558 --name webx-dev-env webx-dev-env-ubuntu:22.04
 ```
 
-(add the `-d` argument to the end of this to run the container as a daemon).
-
 By default this runs X11 on DISPLAY :20 with a resolution of 1920x1080. You can modify these values by adding arguments to the above command. For example
 
 ```
@@ -79,8 +77,29 @@ You should see some output similar to the following:
 [2025-01-06 10:30:54.451] [info] ... loaded keyboard mapping 'en_us_qwerty'
 ```
 
-> Not that if you change environments (eg from Ubuntu 22.04 to Debian 11) it is likely that you'll have to recompile the WebX Engine. To do this you can simply run the command `make clean` and then re-run the `cmake` commands above.
+> Note that if you change environments (eg from Ubuntu 22.04 to Debian 11) it is likely that you'll have to recompile the WebX Engine. To do this you can simply run the command `make clean` and then re-run the `cmake` commands above.
 
 ## Running the WebX Demo
 
+The simplest way to test the WebX Engine is to run the WebX Demo using the [WebX Demo Deploy](https://github.com/ILLGrenoble/webx-demo-deploy) project. 
 
+This project runs the WebX Demo web application in a docker environment. The Demo application is composed of the Java backend [WebX Demo Server](https://github.com/ILLGrenoble/webx-demo-server) and the frontend [WebX Demo Client](https://github.com/ILLGrenoble/webx-demo-client), demoing the full transport of data between the WebX Engine to the user's browser using the [WebX Relay](https://github.com/ILLGrenoble/webx-relay) to bridge the WebX socket and the [WebX Client](https://github.com/ILLGrenoble/webx-client) websocket.
+
+Clone the WebX Demo Deploy project:
+
+```
+git clone https://github.com/ILLGrenoble/webx-demo-deploy
+cd webx-demo-deploy
+```
+
+Run the deployment script to attach to the <em>standalone</em> WebX Engine running on the same host:
+
+```
+./deploy.sh -sh host.docker.internal
+```
+
+This will start the demo web application and the demo server will connect to the WebX Engine running on the host machine.
+
+In a browser, open a new tab at https://localhost
+
+Clicking on the `Connect` button will connect you to your WebX Engine running in you WebX development environment.
