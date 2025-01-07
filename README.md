@@ -14,6 +14,8 @@ docker build -t webx-dev-env-ubuntu:22.04 -f webx-dev-env-ubuntu-22.04.dockerfil
 
 This generates a Docker image called `webx-dev-env-ubuntu:22.04`.
 
+> Please note that all the docker images are available pre-built on ghcr.io as described below.
+
 ## Running a dev environment
 
 The dev environment runs an Xfce4 desktop manager. For this to be useful for the WebX Engine development you need to:
@@ -33,6 +35,16 @@ docker run --rm -v `pwd`:/app -p 5555-5558:5555-5558 --name webx-dev-env webx-de
 ```
 
 will run the display manager on DISPLAY :10 with a resolution of 2560x1440.
+
+### Running a pre-built dev environment
+
+All the dev environments are available to run directly from [ghcr.io](https://github.com/ILLGrenoble/webx-dev-env/packages).
+
+To run a pre-built environment just prefix the image name specified above with `ghcr.io/illgrenoble/`. For example to run the ubuntu:22.04 image just type:
+
+```
+docker run --rm -v `pwd`:/app -p 5555-5558:5555-5558 --name webx-dev-env ghcr.io/illgrenoble/webx-dev-env-ubuntu:22.04
+```
 
 ## Stopping the dev environment
 
