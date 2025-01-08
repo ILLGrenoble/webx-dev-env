@@ -5,6 +5,7 @@ RUN apt install -y file cmake dpkg-dev pkg-config build-essential libzmq3-dev li
 
 RUN apt install -y xfce4 xrdp dbus dbus-x11
 RUN apt install -y xterm terminator nano less
+RUN apt install -y curl unzip
 
 # Ensure webx-engine is mounted to /app
 
