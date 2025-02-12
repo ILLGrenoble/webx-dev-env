@@ -7,6 +7,9 @@ RUN apt install -y xfce4 xrdp dbus dbus-x11
 RUN apt install -y xterm terminator nano less
 RUN apt install -y curl unzip git gdb
 
+# Allow vlc to be run as root
+RUN sed -i 's/geteuid/getppid/' /usr/bin/vlc
+
 # Ensure webx-engine is mounted to /app
 
 WORKDIR /app

@@ -8,6 +8,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y xterm terminator nano less
 RUN DEBIAN_FRONTEND=noninteractive apt install -y curl unzip git gdb
 RUN DEBIAN_FRONTEND=noninteractive apt remove -y xfce4-screensaver
 
+# Allow vlc to be run as root
+RUN sed -i 's/geteuid/getppid/' /usr/bin/vlc
+
 # Ensure webx-engine is mounted to /app
 
 WORKDIR /app

@@ -7,6 +7,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y xfce4 xrdp dbus dbus-x11
 RUN DEBIAN_FRONTEND=noninteractive apt install -y xterm terminator nano less
 RUN DEBIAN_FRONTEND=noninteractive apt install -y curl unzip git gdb
 
+# Allow vlc to be run as root
+RUN sed -i 's/geteuid/getppid/' /usr/bin/vlc
+
 # Ensure webx-engine is mounted to /app
 
 WORKDIR /app
