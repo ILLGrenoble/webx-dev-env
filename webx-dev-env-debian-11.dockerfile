@@ -5,7 +5,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y file cmake dpkg-dev pkg-config
 
 RUN DEBIAN_FRONTEND=noninteractive apt install -y xfce4 xrdp dbus dbus-x11
 RUN DEBIAN_FRONTEND=noninteractive apt install -y xterm terminator nano less
-RUN DEBIAN_FRONTEND=noninteractive apt install -y curl unzip git gdb htop valgrind kcachegrind
+RUN DEBIAN_FRONTEND=noninteractive apt install -y curl unzip git gdb
 RUN DEBIAN_FRONTEND=noninteractive apt install -y vlc
 
 # Allow vlc to be run as root
