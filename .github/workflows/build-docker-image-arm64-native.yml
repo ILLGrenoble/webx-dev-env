@@ -1,4 +1,4 @@
-name: Build and push docker image
+name: Build and push docker image arm64 (native)
 
 on:
   push:
