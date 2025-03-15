@@ -31,6 +31,6 @@ jobs:
 
               # Build and push the image
               docker build --platform linux/amd64 -t ghcr.io/$repo_owner/$image_name -f "$file" .
-              docker push linux/amd64 ghcr.io/$repo_owner/$image_name
+              docker push ghcr.io/$repo_owner/$image_name
             fi
           done
