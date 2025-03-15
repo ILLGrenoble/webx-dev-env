@@ -30,7 +30,7 @@ jobs:
               image_name=$(basename "$file" | sed -E 's/\.dockerfile//; s/-([^-]+)$/:\1/')
 
               # Build and push the image
-              docker build -t ghcr.io/$repo_owner/$image_name -f "$file" .
-              docker push ghcr.io/$repo_owner/$image_name
+              docker build --platform linux/amd64 -t ghcr.io/$repo_owner/$image_name -f "$file" .
+              docker push --platform linux/amd64 ghcr.io/$repo_owner/$image_name
             fi
           done
