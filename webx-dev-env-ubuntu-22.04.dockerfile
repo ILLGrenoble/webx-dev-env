@@ -7,6 +7,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y xfce4 xrdp dbus dbus-x11
 RUN DEBIAN_FRONTEND=noninteractive apt install -y xterm terminator nano less
 RUN DEBIAN_FRONTEND=noninteractive apt install -y wget curl unzip git gdb htop valgrind kcachegrind
 RUN DEBIAN_FRONTEND=noninteractive apt install -y vlc
+RUN DEBIAN_FRONTEND=noninteractive apt install -y xvfb
 
 RUN DEBIAN_FRONTEND=noninteractive apt remove -y xfce4-screensaver
 
